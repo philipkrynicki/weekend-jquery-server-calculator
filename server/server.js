@@ -14,15 +14,15 @@ app.use(express.static('server/public'));
 let numOne = 1;
 let numTwo = 2;
 
-
 // Function was defined to evaluate html input on the server
 // console.log of the results
 // write functions here
-function processAddition (numberOne, numberTwo) {
-    return numberOne + numberTwo;  
+function processAddition () {
+    return numOne + numTwo;  
 }
 
-app.post('/quotes', (req, res) => {
+
+app.post('/number', (req, res) => {
     // add the incoming quote to our quote list
     // request will have a lot, including our sent quote
     // send back a good response

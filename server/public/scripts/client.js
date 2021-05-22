@@ -14,7 +14,7 @@ function handleReady() {
 
     ('#Fourth').on('click', processDivision);
 
-    ('#Equals').on('click', processEquals);
+    ('#Equals').on('click', processEquals(('#numberInOne').val, ('#numberInTwo').val));
 
     ('#submit').on('click', processClear);
 
@@ -23,6 +23,10 @@ function handleReady() {
 
 }
 
+
+function processAddition( numOne, numTwo ) {
+    return numOne + numTwo;    
+}
 
 function addQuote() {
     let newQuote = {
@@ -35,7 +39,7 @@ function addQuote() {
     // data should always be an object
 
     $.ajax({
-        url: '/quotes',
+        url: '/number',
         method: 'POST',
         data: newQuote // becomes req.body on the server
     }).then(function (response) {
