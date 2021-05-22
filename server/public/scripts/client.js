@@ -22,3 +22,45 @@ function handleReady() {
 
 
 }
+
+
+function addQuote() {
+    let newQuote = {
+        text: $('#textIn').val(),
+        author: $('#authorIn').val()
+    }
+    // add to array...
+    // push it into quoteList
+    // MAKE POST REQUEST WITH newQuote
+    // data should always be an object
+
+    $.ajax({
+        url: '/quotes',
+        method: 'POST',
+        data: newQuote // becomes req.body on the server
+    }).then(function (response) {
+        console.log(response)
+        getQuotes();
+    })
+}
+
+function getQuotes() {
+    // got to server route / quotes
+    // promise "when I come back I do something else"   .then is usually working with a promise
+    $.ajax({
+        method: 'GET' ,
+        url: '/quotes'
+    }).then(function (response) {
+        // response is what was in the res.send()
+        console.log(response)
+        // empty DOM
+        $('$quotes').empty;
+    // append quotes to DOM
+    for(let quote of response) {
+        $('#quote').append(`
+        <li>${quote.text} By: ${quote.author}</li>
+        `)
+    }
+    alert("hello");
+    })
+}
