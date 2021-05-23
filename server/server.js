@@ -17,6 +17,8 @@ app.use(express.static('server/public'));
 // Function was defined to evaluate html input on the server
 // console.log of the results
 // write functions here
+let subNumbers = []
+
 function processAddition () {
     return numOne + numTwo;  
 }
@@ -40,10 +42,10 @@ app.post('/numbers', (req, res) => {
 // Get is for getting existing data
 app.get('/numbers', (req, res) => {
     console.log('got to /quotes');
-
+    handleMath(subNumbers);
     //respond
     // whatever is in the send 
-    res.send()
+    res.send(subNumbers)
 })
 
 // start listening for connections
@@ -51,4 +53,14 @@ app.listen(PORT, () => {
     console.log('RUNNING ON PORT:', PORT)
 });
 
-let subNumbers = []
+
+function handleMath(math) {
+    for (let math of math){
+    console.log(math);
+    if(math.operator == 'plus') {
+        math.numberOne + math.numberTwo
+        let plusAnswer = Number(math.numberOne) + Number(math.numberTwo);
+        console.log(plusAnswer);
+    }
+    }
+}
