@@ -19,11 +19,6 @@ app.use(express.static('server/public'));
 // write functions here
 let subNumbers = []
 
-function processAddition () {
-    return numOne + numTwo;  
-}
-
-
 app.post('/numbers', (req, res) => {
     // add the incoming quote to our quote list
     // request will have a lot, including our sent quote
@@ -45,6 +40,7 @@ app.get('/numbers', (req, res) => {
     handleMath(subNumbers);
     //respond
     // whatever is in the send 
+    console.log('get numbers');
     res.send(subNumbers)
 })
 
@@ -54,13 +50,14 @@ app.listen(PORT, () => {
 });
 
 
-function handleMath(math) {
-    for (let math of math){
+function handleMath(mathOperations) {
+    for (let math of mathOperations){
     console.log(math);
     if(math.operator == 'plus') {
         math.numberOne + math.numberTwo
         let plusAnswer = Number(math.numberOne) + Number(math.numberTwo);
         console.log(plusAnswer);
+        // on Sunday need to finish this function
     }
     }
 }

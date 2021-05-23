@@ -8,21 +8,21 @@ function handleReady() {
     console.log('jquery loaded!');
 
     // Click listeners
-    ('#numberInOne').on('click');
+    $('#numberInOne').on('click');
 
-    ('#First').on('click', processAddition);
+    $('#First').on('click', processAddition);
     
-    ('#Second').on('click', processSubtraction);
+    $('#Second').on('click', processSubtraction);
 
-    ('#Third').on('click', processMultiplication);
+    $('#Third').on('click', processMultiplication);
 
-    ('#Fourth').on('click', processDivision);
+    $('#Fourth').on('click', processDivision);
 
-    ('#numberInTwo').on('click');
+    $('#numberInTwo').on('click');
     
-    ('#Equals').on('click', processEquals);
+    $('#Equals').on('click', processEquals);
 
-    ('#submit').on('click', processClear);
+    $('#submit').on('click', processClear);
 
     getResults();
 
@@ -68,7 +68,12 @@ function processDivision( numOne, numTwo) {
 }
 
 
+function processClear () {
+    console.log('time to delete the info');
+    console.log($(this));
+    $(this).closest('').remove();
 
+}
 
 
 function getResults() {
@@ -84,7 +89,10 @@ function getResults() {
         $('$number').empty;
     // append quotes to DOM
     for(let math of math) {
-        $('#number').append(``)
+        // append the results to the DOM
+        $('#number').append(`
+        <li>${response}</li>
+        `)
     }
     alert("hello");
     })
