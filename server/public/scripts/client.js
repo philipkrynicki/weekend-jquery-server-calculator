@@ -2,31 +2,19 @@ console.log('hello world!');
 
 $(handleReady);
 
-
-
 function handleReady() {
     console.log('jquery loaded!');
 
     // Click listeners
     $('#numberInOne').on('click');
-
     $('#First').on('click', processAddition);
-    
     $('#Second').on('click', processSubtraction);
-
     $('#Third').on('click', processMultiplication);
-
     $('#Fourth').on('click', processDivision);
-
     $('#numberInTwo').on('click');
-    
     $('#Equals').on('click', processEquals);
-
     $('#submit').on('click', processClear);
-
     getResults();
-
-
 }
 
 let operator = 0;
@@ -48,7 +36,6 @@ function processEquals() {
             getResults();
         })
     }
-
 
 
 function processAddition( numOne, numTwo ) {

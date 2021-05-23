@@ -16,7 +16,6 @@ app.use(express.static('server/public'));
 
 // Function was defined to evaluate html input on the server
 // console.log of the results
-// write functions here
 let subNumbers = []
 
 app.post('/numbers', (req, res) => {
@@ -54,10 +53,18 @@ function handleMath(mathOperations) {
     for (let math of mathOperations){
     console.log(math);
     if(math.operator == 'plus') {
-        math.numberOne + math.numberTwo
+        math.numberOne + math.numberTwo;
         let plusAnswer = Number(math.numberOne) + Number(math.numberTwo);
         console.log(plusAnswer);
-        // on Sunday need to finish this function
+    } else if(math.operator == 'minus') {
+        math.numberOne - math.numberTwo;
+        let minusAnswer = Number(math.numberOne) - Number(math.numberTwo);
+    } else if(math.operator == 'multiply') {
+        math.numberOne * math.numberTwo;
+        let multiplyAnswer = Number(math.numberOne) * Number(math.numberTwo);
+    } else if(math.operator == 'divide') {
+        math.numberOne * math.numberTwo;
+        let divideAnswer = Number(math.numberOne) / Number(math.numberTwo);
     }
     }
 }
