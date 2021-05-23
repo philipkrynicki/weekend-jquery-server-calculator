@@ -10,7 +10,7 @@ function handleReady() {
     // Click listeners
     ('#numberInOne').on('click');
 
-    ('First').on('click', processAddition);
+    ('#First').on('click', processAddition);
     
     ('#Second').on('click', processSubtraction);
 
@@ -52,12 +52,20 @@ function processEquals() {
 
 
 function processAddition( numOne, numTwo ) {
-    return numOne + numTwo;    
+    operator = 'plus';
 }
 
-function processSubtraction( numOne, numbTwo) {
-    
+function processSubtraction( numOne, numTwo) {
+    operator = 'minus';
 } 
+
+function processMultiplication( numOne, numTwo) {
+    operator = 'multiply';
+}
+
+function processDivision( numOne, numTwo) {
+    operator = 'division';
+}
 
 
 
