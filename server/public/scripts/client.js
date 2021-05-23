@@ -2,6 +2,8 @@ console.log('hello world!');
 
 $(handleReady);
 
+
+
 function handleReady() {
     console.log('jquery loaded!');
 
@@ -14,7 +16,7 @@ function handleReady() {
 
     ('#Fourth').on('click', processDivision);
 
-    ('#Equals').on('click', processEquals(('#numberInOne').val, ('#numberInTwo').val));
+    ('#Equals').on('click', processEquals);
 
     ('#submit').on('click', processClear);
 
@@ -23,42 +25,46 @@ function handleReady() {
 
 }
 
+let operator = 0;
+
+function processEquals() {
+    console.log('in handleEquals');
+
+    let submittedNumbers = {
+        numberOne: $('#inputOne').val(),
+        operator: operator,
+        numberTwo: $('#inputTwo').val()
+
+        $.ajax( {
+            method: 'POST',
+            url: '/numbers',
+            data: submittedNumbers
+        }).then(function.(response){
+            console.log(response);
+        })
+    }
+}
+
 
 function processAddition( numOne, numTwo ) {
     return numOne + numTwo;    
 }
 
-function addQuote() {
-    let newQuote = {
-        text: $('#textIn').val(),
-        author: $('#authorIn').val()
-    }
-    // add to array...
-    // push it into quoteList
-    // MAKE POST REQUEST WITH newQuote
-    // data should always be an object
 
-    $.ajax({
-        url: '/number',
-        method: 'POST',
-        data: newQuote // becomes req.body on the server
-    }).then(function (response) {
-        console.log(response)
-        getQuotes();
-    })
-}
+
+
 
 function getQuotes() {
     // got to server route / quotes
     // promise "when I come back I do something else"   .then is usually working with a promise
     $.ajax({
         method: 'GET' ,
-        url: '/quotes'
+        url: '/numbers'
     }).then(function (response) {
         // response is what was in the res.send()
         console.log(response)
         // empty DOM
-        $('$quotes').empty;
+        $('$number').empty;
     // append quotes to DOM
     for(let quote of response) {
         $('#quote').append(`
