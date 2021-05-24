@@ -35,7 +35,7 @@ app.post('/numbers', (req, res) => {
 
 // Get is for getting existing data
 app.get('/numbers', (req, res) => {
-    console.log('got to /quotes');
+    console.log('got to /numbers');
     handleMath(subNumbers);
     //respond
     // whatever is in the send 
