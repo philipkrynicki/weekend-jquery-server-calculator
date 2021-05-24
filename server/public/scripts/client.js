@@ -73,14 +73,16 @@ function getResults() {
         // response is what was in the res.send()
         console.log(response)
         // empty DOM
-        $('$number').empty;
+        // code on line 77 needs a corrections.  $numbers is not referring to the /numbers
+        $('$numbers').empty;
     // append quotes to DOM
     for(let math of math) {
         // append the results to the DOM
-        $('#number').append(`
+        // the code on line 82 is not correct and needs to be fixed, specifically #numbers
+        $('#numbers').append(`  
         <li>${response}</li>
         `)
     }
-    alert("hello");
+    alert("You answer is ready");
     })
 }
